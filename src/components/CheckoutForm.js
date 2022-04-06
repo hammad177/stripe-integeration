@@ -66,7 +66,6 @@ const CheckoutForm = ({ clientSecret }) => {
       },
       redirect: "if_required",
     });
-    console.log("StripePayment :>> ", StripePayment);
 
     if (StripePayment.error) {
       // This point will only be reached if there is an immediate error when
@@ -80,6 +79,7 @@ const CheckoutForm = ({ clientSecret }) => {
       alterMessage(StripePayment.paymentIntent);
     }
     setIsLoading(false);
+    elements.getElement("payment").clear();
   };
 
   return (
